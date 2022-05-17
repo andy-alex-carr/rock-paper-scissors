@@ -59,3 +59,11 @@ function roundWin(playerSelection, computerSelection) {
             break;
     }
 }
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return "Same!";
+    } else {
+        return roundWin(playerSelection, computerSelection);
+    }
+}
