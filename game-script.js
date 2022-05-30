@@ -1,32 +1,30 @@
+let playerWins = 0;
+let computerWins = 0;
+
 function computerPlay() {
     switch (Math.floor(Math.random()*3) + 1) {
         case 1:
             return "rock";
-            break;
     
         case 2:
             return "paper";
-            break;
         
         case 3:
             return "scissors";
-            break;
     }
 }
 
-function roundWin(playerSelection, computerSelection) {
+function roundWinner(playerSelection, computerSelection) {
     switch (playerSelection) {
         case "rock":
             switch (computerSelection) {
                 case "scissors":
                     playerWins++;
-                    return "You win! Rock beats scissors!";
-                    break;
+                    return "You win this round! Rock beats scissors!";
 
                 case "paper":
                     computerWins++;
-                    return "You lose! Paper beats rock!";
-                    break;
+                    return "You lose this round! Paper beats rock!";
             }
             break;
     
@@ -34,13 +32,11 @@ function roundWin(playerSelection, computerSelection) {
             switch (computerSelection) {
                 case "rock":
                     playerWins++;
-                    return "You win! Paper beats rock!";
-                    break;
+                    return "You win this round! Paper beats rock!";
             
                 case "scissors":
                     computerWins++;
-                    return "You lose! Scissors beats paper!";
-                    break;
+                    return "You lose this round! Scissors beats paper!";
             }
             break;
 
@@ -48,22 +44,49 @@ function roundWin(playerSelection, computerSelection) {
             switch (computerSelection) {
                 case "paper":
                     playerWins++;
-                    return "You win! Scissors beats paper!";
-                    break;
+                    return "You win this round! Scissors beats paper!";
             
                 case "rock":
                     computerWins++;
-                    return "You lose! Rock beats scissors!";
-                    break;
+                    return "You lose this round! Rock beats scissors!";
             }
             break;
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection == computerSelection) {
+function playRound(playerSelection) {
+    const computerSelection = computerPlay();
+    if (playerSelection === computerSelection) {
         return "Same!";
     } else {
-        return roundWin(playerSelection, computerSelection);
+        return roundWinner(playerSelection, computerSelection);
+    }
+}
+
+function gameWinner() {
+    if (playerWins > computerWins) {
+        return `${playerWins} - ${computerWins} Game Over! You Win!`;
+    } else {
+        return `${playerWins} - ${computerWins} Game Over! You Lose!`;
+    }
+}
+
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+const result = document.getElementById('result');
+
+rock.addEventListener('click', () => playGame("rock"));
+paper.addEventListener('click', () => playGame("paper"));
+scissors.addEventListener('click', () => playGame("scissors"));
+
+function playGame(playerSelection) {
+    if (playerWins < 5 && computerWins < 5) {
+        const round = playRound(playerSelection);
+        if (playerWins === 5 || computerWins === 5) {
+            result.textContent = gameWinner();
+        } else {
+            result.textContent = `${playerWins} - ${computerWins} ${round}`;
+        }
     }
 }
