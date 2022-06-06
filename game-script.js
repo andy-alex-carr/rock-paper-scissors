@@ -90,22 +90,3 @@ function playGame(playerSelection) {
         }
     }
 }
-
-let playerWins;
-let computerWins;
-
-function game() {
-    playerWins = 0;
-    computerWins = 0;
-
-    for (let i = 0; i < 5; i++) {
-        let yourPlay = prompt("Enter your play:").toLowerCase();
-        console.log(playRound(yourPlay, computerPlay()));
-    }
-
-    if (playerWins == computerWins) {
-        console.log("It's a tie! Game Over!");
-    } else {
-        (playerWins > computerWins) ? console.log("You win! Game Over!") : console.log("You lose! Game Over!");
-    }
-}
