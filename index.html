@@ -19,6 +19,20 @@
             const paper = document.querySelector("#rock");
             const scissors = document.querySelector("#scissors");
             const reset = document.querySelector("#reset");
+            
+            function getComputerChoice() {
+                let choice = Math.floor(Math.random() * 3);
+                switch (choice) {
+                    case 0:
+                        return "Rock";
+                    
+                    case 1:
+                        return "Paper";
+
+                    default:
+                        return "Scissors";
+                    }
+            }
         </script>
     </body>
 </html>
