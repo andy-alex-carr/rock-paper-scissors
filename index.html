@@ -33,6 +33,16 @@
                         return "Scissors";
                     }
             }
+
+            function userWins(userChoice, computerChoice) {
+                if (userChoice == "Rock") {
+                    return computerChoice == "Scissors";
+                } else if (userChoice == "Paper") {
+                    return computerChoice == "Rock";
+                } else {
+                    return computerChoice == "Paper";
+                }
+            }
         </script>
     </body>
 </html>
