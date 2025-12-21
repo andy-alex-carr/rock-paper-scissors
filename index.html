@@ -47,6 +47,20 @@
 
             let userScore = 0;
             let computerScore = 0;
+
+            function getRoundWinner(userChoice, computerChoice) {
+                if (userChoice !== computerChoice) {
+                    if (userWins(userChoice, computerChoice)) {
+                        userScore++;
+                        return `You win! ${userChoice} beats ${computerChoice}!`;
+                    } else {
+                        computerScore++;
+                        return `Computer wins! ${computerChoice} beats ${userChoice}!`;
+                    }
+                } else {
+                    return "Tie!";
+                }
+            }
         </script>
     </body>
 </html>
