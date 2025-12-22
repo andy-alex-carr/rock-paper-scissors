@@ -61,6 +61,20 @@
                     return "Tie!";
                 }
             }
+
+            function playGame(userChoice, computerChoice) {
+                textbox.textContent = getRoundWinner(userChoice, computerChoice) + ` ${userScore} - ${computerScore}`;
+                
+                if (userScore === 5 || computerScore === 5) {
+                    rock.disabled = true;
+                    paper.disabled = true;
+                    scissors.disabled = true;
+                    textbox.textContent = `
+                    Game Over! You ${(userScore > computerScore) ? "Win" : "Lose"}! ${userScore} - ${computerScore}
+                    Press RESET to play again.
+                    `;
+                }
+            }
         </script>
     </body>
 </html>
