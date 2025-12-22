@@ -75,6 +75,15 @@
                     `;
                 }
             }
+
+            function resetGame() {
+                userScore = 0;
+                computerScore = 0;
+                rock.disabled = false;
+                paper.disabled = false;
+                scissors.disabled = false;
+                textbox.textContent = "Choose your move to start the game.";
+            }
         </script>
     </body>
 </html>
