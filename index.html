@@ -78,6 +78,9 @@
                 buttons.forEach(button => button.disabled = false);
                 textbox.textContent = "Choose your move to start the game.";
             }
+
+            buttons.forEach(button => button.addEventListener('click', (e) => playGame(e.target.value, getComputerChoice())));
+            reset.addEventListener('click', () => resetGame());
         </script>
     </body>
 </html>
