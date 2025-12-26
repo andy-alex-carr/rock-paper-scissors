@@ -81,6 +81,24 @@
 
             buttons.forEach(button => button.addEventListener('click', (e) => playGame(e.target.value, getComputerChoice())));
             reset.addEventListener('click', () => resetGame());
+
+            const clickButton = new MouseEvent('click');
+            document.addEventListener('keydown', (e) => {
+                switch (e.key) {
+                    case "1":
+                    case "2":
+                    case "3":
+                        buttons[e.key - 1].dispatchEvent(clickButton);
+                        break;
+
+                    case "0":
+                        reset.dispatchEvent(clickButton);
+                        break;
+
+                    default:
+                        break;
+                };
+            })
         </script>
     </body>
 </html>
