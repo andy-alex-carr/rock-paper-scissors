@@ -8,7 +8,7 @@
     <body>
         <h1>Rock Paper Scissors</h1>
         <div class="score-textbox">
-            Choose your move to start the game.
+            Choose your move to start the game. Click on the buttons or press the numbers on your keyboard.
         </div>
         <button class="button" value="Rock">Rock</button>
         <button class="button" value="Paper">Paper</button>
@@ -76,7 +76,7 @@
                 userScore = 0;
                 computerScore = 0;
                 buttons.forEach(button => button.disabled = false);
-                textbox.textContent = "Choose your move to start the game.";
+                textbox.textContent = "Choose your move to start the game. Click on the buttons or press the numbers on your keyboard.";
             }
 
             buttons.forEach(button => button.addEventListener('click', (e) => playGame(e.target.value, getComputerChoice())));
