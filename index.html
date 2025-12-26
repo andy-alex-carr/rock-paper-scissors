@@ -15,10 +15,8 @@
         <button class="button" value="Scissors">Scissors</button>
         <button class="reset">RESET</button>
         <script>
-            const rock = document.querySelector("#rock");
-            const paper = document.querySelector("#paper");
-            const scissors = document.querySelector("#scissors");
-            const reset = document.querySelector("#reset");
+            const buttons = document.querySelectorAll(".button");
+            const reset = document.querySelector(".reset");
             const textbox = document.querySelector(".score-textbox");
             
             function getComputerChoice() {
@@ -66,9 +64,7 @@
                 textbox.textContent = getRoundWinner(userChoice, computerChoice) + ` ${userScore} - ${computerScore}`;
                 
                 if (userScore === 5 || computerScore === 5) {
-                    rock.disabled = true;
-                    paper.disabled = true;
-                    scissors.disabled = true;
+                    buttons.forEach(button => button.disabled = true);
                     textbox.textContent = `
                     Game Over! You ${(userScore > computerScore) ? "Win" : "Lose"}! ${userScore} - ${computerScore}
                     Press RESET to play again.
@@ -79,9 +75,7 @@
             function resetGame() {
                 userScore = 0;
                 computerScore = 0;
-                rock.disabled = false;
-                paper.disabled = false;
-                scissors.disabled = false;
+                buttons.forEach(button => button.disabled = false);
                 textbox.textContent = "Choose your move to start the game.";
             }
         </script>
